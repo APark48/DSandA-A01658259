@@ -9,15 +9,15 @@ int euclides(int m, int n){
         return m;
     
     if (m > n)
-        return (m%n, n);
+        return euclides(m%n, n);
     else 
-        return (m, n%m);
+        return euclides(m, n%m);
 }
 
 int main(){
     //Testing
-    int a = 20;
-    int b = 10;
+    int a = 3;
+    int b = 6;
     int ans = euclides(a,b);
     std::cout << ans << std::endl;
 
