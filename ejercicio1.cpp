@@ -3,9 +3,15 @@
 
 int euclides(int m, int n){
     //Base case
-    if (m <= 0)
+    if (m == 0)
         return n;
-    return euclides(m%n, n);
+    if (n == 0)
+        return m;
+    
+    if (m > n)
+        return (m%n, n);
+    else 
+        return (m, n%m);
 }
 
 int main(){
