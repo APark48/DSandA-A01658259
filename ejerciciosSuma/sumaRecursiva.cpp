@@ -1,3 +1,4 @@
+// Developed by Alfredo Jeong Hyun Park (A01658259)
 #include <iostream>
 
 int sumaRecursiva(int n){

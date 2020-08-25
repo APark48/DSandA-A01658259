@@ -6,6 +6,6 @@ int sumaDirecta(int n){
 }
 
 int main(){
-    int a = 3;
+    int a = 4;
     std::cout << sumaDirecta(a);
 }
