@@ -4,7 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <ctime>
-#include "Timer.h"
+#include "mytimer.h"
 
 int main(){
     srand(time(NULL));
@@ -39,6 +39,8 @@ int main(){
     STOP_TIMING(time4);
     std::cout << result4 << std::endl;
     SHOW_TIMING(time4, "Binary search: ");
+
+
 
     return 0;
 }
