@@ -10,7 +10,7 @@ int main(){
     srand(time(NULL));
     int num = 10;
     Search <int> s(num);
-    std::cout << s.binarySearch(0, 100000) << std::endl;
+    std::cout << s.sequentialSearch2(0, 100000, 10000) << std::endl;
 
     return 0;
 }

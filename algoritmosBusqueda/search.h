@@ -3,7 +3,6 @@
 #pragma once
 #include <vector>
 #include <cstdlib>
-#include "Timer.h"
 #include <algorithm>
 
 template <typename T> 
@@ -44,17 +43,15 @@ public:
     }
 
     T sequentialSearch2(T first, T last, T p){
-        for (int i = first; i < last; i+=p){
+        for (int i = first; i <= last; i+=p){
             if (elements.at(i) == n){
                 return i;
             }
             else if (elements.at(i) > n){
                 return sequentialSearch2(i-p, i, p/10);
             }
-            else {
-                return -1;
-            }
         }
+        return -1;
     }
 
     T binarySearch(T first, T last){
