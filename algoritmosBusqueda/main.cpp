@@ -3,12 +3,14 @@
 #include "Search.h"
 #include <vector>
 #include <iostream>
+#include <ctime>
+#include "Timer.h"
 
-template <typename T>
 int main(){
-    std::vector <T> v = {1,2,3,4};
-    Search s(v);
-    std::cout << s.sequentialSearch(2);
+    srand(time(NULL));
+    int num = 10;
+    Search <int> s(num);
+    std::cout << s.binarySearch(0, 100000) << std::endl;
 
     return 0;
 }
