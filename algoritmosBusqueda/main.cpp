@@ -8,7 +8,7 @@
 
 int main(){
     srand(time(NULL));
-    int num = 10;
+    int num = 25756;
     int result1, result2, result3, result4;
     Search <int> s(num);
 
@@ -39,8 +39,6 @@ int main(){
     STOP_TIMING(time4);
     std::cout << result4 << std::endl;
     SHOW_TIMING(time4, "Binary search: ");
-
-
 
     return 0;
 }
