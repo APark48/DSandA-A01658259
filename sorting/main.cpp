@@ -8,6 +8,7 @@
 #include <ctime>
 
 int main(){
+    //Creating random vector
     srand(time(NULL));
     std::vector <int> v;
     for (int i = 0; i<10; i++){
@@ -16,18 +17,18 @@ int main(){
     
     SelectionSort <int> s;
     s.sort(v);
-    for (auto i:v){
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-
+    
     BubbleSort <int> b;
     b.sort(v);
-    for (auto i:v){
-        std::cout << i << " ";
-    }
-
     
+    InsertionSort<int> i;
+    i.sort(v);
+
+    MergeSort <int> m;
+    m.sort(v, 0, 9);
+
+    QuickSort<int> q;
+    q.sort(v, 0, 9);
 
     return 0;
 }
