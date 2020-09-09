@@ -16,30 +16,69 @@ void quickSort(std::vector<int> &arr, int low, int high);
 int sequentialSearch(std::vector <int> &arr, int num);
 int binarySearch(std::vector <int> &arr, int low, int high, int num);
 
+//Print function
+void print(std::vector <int> &arr);
+
 int main(){
     srand(time(NULL));
+    int sortChoice, size, num, searchChoice;
+    const int low = 0;
 
-    // std::cout << "Which sorting do you want to do?" << std::endl;
-    // std::cout << "1. Selection Sort\n2. Bubble Sort\n3. Quick Sort" << std::endl;
-    // std::cout << "Enter number: ";
-    // int choice;
-    // std::cin >> choice;
     std::cout << "Enter vector size: ";
-    int size;
     std::cin >> size;
-    std::cout << "Generating random vector...";
-    
+
+    //Generating random vector with random values from 0 to 100
     std::vector <int> arr;
     for (int i = 0; i<size; i++){
         arr.push_back(rand()%100);
     }
-    const int low = 0;
+    std::cout << "\nRandom vector succesfully generated." << std::endl;
 
-    quickSort(arr, 0, size-1);
-    for (auto i : arr){
-        std::cout << i << " ";
+    //Making user select which sorting does the user want to perform
+    std::cout << "\nChoose Which sort to perform" << std::endl;
+    std::cout << "1. Selection Sort\n2. Bubble Sort\n3. Quick Sort" << std::endl;
+    std::cout << "Enter number: ";
+    std::cin >> sortChoice;
+    
+    switch (sortChoice){
+    case 1:
+        selectionSort(arr);
+        break;
+    case 2:
+        bubbleSort(arr);
+        break;
+    case 3:
+        quickSort(arr, low, size-1);
+        break;
+    default:
+        std::cout << "INVALID OPTION.";
+        break;
+    }
+    std::cout << "\nVector has been sorted successfully." << std::endl;
+
+    //Making user select which search does the user want to perform
+    std::cout << "\nEnter number to search: ";
+    std::cin >> num;
+    std::cout << "Choose which search to perform" << std::endl;
+    std::cout << "1. Sequential search\n2. Binary search" << std::endl;
+    std::cout << "Enter number: ";
+    std::cin >> searchChoice;
+
+    switch (searchChoice){
+    case 1:
+        std::cout << sequentialSearch(arr, num) << std::endl;
+        break;
+    case 2:
+        std::cout << binarySearch(arr, low, size, num) << std::endl;
+        break;
+    default:
+        "INVALID OPTION.";
+        break;
     }
 
+    //Printing generated vector to show user
+    std::cout << "Generated vector: ";
+    print(arr);
 
     return 0;
 }
@@ -104,11 +143,27 @@ int sequentialSearch(std::vector<int> &arr, int num){
         if (arr.at(i) == num){
             return i;
         }
-        return -1;
     }
+    return -1;
 }
 
 //Binary search
-int binarySearch(std::vector<int> &arr, int num){
+int binarySearch(std::vector<int> &arr, int low, int high, int num){
+  while (low <= high){
+    int mid = (low+high)/2;
+    if (arr.at(mid) == num)
+      return mid;
+    else if (arr.at(mid) < num)
+      low = mid+1;
+    else
+      high = mid-1;
+  }
+  return -1;
+}
 
+//Printing function
+void print(std::vector <int> &arr){
+    for (auto i : arr){
+        std::cout << i << " ";
+    }
 }
