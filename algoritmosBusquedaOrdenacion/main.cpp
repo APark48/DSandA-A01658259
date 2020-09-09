@@ -9,12 +9,12 @@
 void selectionSort(std::vector<int> &arr);
 void swap(std::vector <int> &arr, int i, int j);
 void bubbleSort(std::vector<int> &arr);
-int pivot(std::vector<int> &arr, int low, int high);
+int part(std::vector<int> &arr, int low, int high);
 void quickSort(std::vector<int> &arr, int low, int high);
 
 //Search functions declaration
-void sequentialSearch(std::vector <int> &arr);
-void binarySearch(std::vector <int> &arr, int low, int high);
+int sequentialSearch(std::vector <int> &arr, int num);
+int binarySearch(std::vector <int> &arr, int low, int high, int num);
 
 int main(){
     srand(time(NULL));
@@ -28,16 +28,18 @@ int main(){
     int size;
     std::cin >> size;
     std::cout << "Generating random vector...";
-    std::cout << std::endl;
-    std::vector <int> arr;
-    for (int i = 0; i<=size; i++){
-        arr.push_back(rand()%1000);
-    }
     
-    bubbleSort(arr);
+    std::vector <int> arr;
+    for (int i = 0; i<size; i++){
+        arr.push_back(rand()%100);
+    }
+    const int low = 0;
+
+    quickSort(arr, 0, size-1);
     for (auto i : arr){
         std::cout << i << " ";
     }
+
 
     return 0;
 }
@@ -73,3 +75,40 @@ void bubbleSort(std::vector <int> &arr){
     }
 }
 
+int partition(std::vector <int> &arr, int low, int high)  
+{  
+    int pivot = arr.at(high); 
+    int i = low - 1; 
+    for (int j = low; j < high; j++){  
+        if (arr.at(j) < pivot){  
+            i++;  
+            swap(arr, i, j);  
+        }  
+    }  
+    swap(arr, i+1, high);  
+    return (i + 1);  
+}  
+
+//Quick Sort
+void quickSort(std::vector<int> &arr, int low, int high){
+    if (low < high){
+        int partIndex = partition(arr, low, high);
+        quickSort(arr, low, partIndex-1);
+        quickSort(arr, partIndex+1, high);
+    }
+}
+
+//Sequential Search
+int sequentialSearch(std::vector<int> &arr, int num){
+    for (int i = 0; i < arr.size(); i++){
+        if (arr.at(i) == num){
+            return i;
+        }
+        return -1;
+    }
+}
+
+//Binary search
+int binarySearch(std::vector<int> &arr, int num){
+
+}
