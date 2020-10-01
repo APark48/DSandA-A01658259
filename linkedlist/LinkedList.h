@@ -17,6 +17,7 @@ public:
     ~LinkedList();
 
     //Functions
+    void print();
     int count(T target);
     void deleteList();
     void sortedInsert(Node<T>* newNode);
