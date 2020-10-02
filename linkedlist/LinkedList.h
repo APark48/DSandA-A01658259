@@ -24,7 +24,7 @@ public:
     //Functions
     int count(T target);
     void deleteList();
-    void sortedInsert(Node<T> * newNode);
-
+    void sortedInsert(Node<T>* newNode);
+    void reverse();
 };
 
