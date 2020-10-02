@@ -13,8 +13,8 @@ int main(){
 
     head.append(&n2);
     head.append(&n3);
-    head.append(&n4);
-    head.deleteList(&n1);
+    head.prepend(&n4);
+    head.deleteList();
     head.print();
 
     //std::cout << head.count(3);

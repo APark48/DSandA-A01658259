@@ -70,12 +70,13 @@ int LinkedList<T>::count(T target){
 
 // Function to delete every elements on the list
 template<typename T>
-void LinkedList<T>::deleteList(Node<T>* head){
+void LinkedList<T>::deleteList(){
     Node<T>* currentNode = head;
-    Node<T>* tempNode = nullptr;
+    Node<T>* tempNode;
     while (currentNode != nullptr){
         tempNode = currentNode->next;
-        delete(currentNode);
+        delete currentNode;
+        currentNode = nullptr;
         currentNode = tempNode;
     }
     head = nullptr;
