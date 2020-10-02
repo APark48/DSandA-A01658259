@@ -23,7 +23,7 @@ public:
 
     //Functions
     int count(T target);
-    void deleteList();
+    void deleteList(Node<T>* head);
     void sortedInsert(Node<T> * newNode);
 
 };

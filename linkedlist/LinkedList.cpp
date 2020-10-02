@@ -8,12 +8,7 @@
 // O(1) time complexity
 template<typename T>
 bool LinkedList<T>::isEmpty(){
-    if (head == nullptr){
-        return true;
-    }
-    else{
-        return false;
-    }
+    return head == nullptr;
 }
 
 // Function to add new node at the end of the list
@@ -69,17 +64,25 @@ int LinkedList<T>::count(T target){
             count++;
         }
         currentNode=currentNode->next;
-    }
+    }   
     return count;
 }
 
 // Function to delete every elements on the list
 template<typename T>
-void LinkedList<T>::deleteList(){
+void LinkedList<T>::deleteList(Node<T>* head){
+    Node<T>* currentNode = head;
+    Node<T>* tempNode = nullptr;
+    while (currentNode != nullptr){
+        tempNode = currentNode->next;
+        delete(currentNode);
+        currentNode = tempNode;
+    }
+    head = nullptr;
 }
 
 // Function to sort list and add new node
 template<typename T>
 void LinkedList<T>::sortedInsert(Node<T>* newNode){
 
-};
+}
