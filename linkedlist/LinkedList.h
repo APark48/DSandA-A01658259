@@ -17,7 +17,7 @@ public:
 
     //Essential functions
     bool isEmpty();
-    void append(Node<T>* newNode);
+    void push(Node<T>* newNode);
     T prepend(Node<T>* newNode);
     void print();
 

@@ -14,7 +14,7 @@ bool LinkedList<T>::isEmpty(){
 // Function to add new node at the end of the list
 // O(n) time complexity
 template<typename T>
-void LinkedList<T>::append(Node<T>* newNode){
+void LinkedList<T>::push(Node<T>* newNode){
     if (isEmpty()){
         head = newNode;
     }
@@ -69,15 +69,15 @@ int LinkedList<T>::count(T target){
 }
 
 // Function to delete every elements on the list
+// O(n) time complexity
+// Iterate through each element in the list, make a temporary node object to store head node position once deleted
 template<typename T>
 void LinkedList<T>::deleteList(){
-    Node<T>* currentNode = head;
     Node<T>* tempNode;
-    while (currentNode != nullptr){
-        tempNode = currentNode->next;
-        delete currentNode;
-        currentNode = nullptr;
-        currentNode = tempNode;
+    while (head != nullptr){
+        tempNode = head->next;
+        delete head;
+        head = tempNode;
     }
     head = nullptr;
 }
@@ -86,4 +86,23 @@ void LinkedList<T>::deleteList(){
 template<typename T>
 void LinkedList<T>::sortedInsert(Node<T>* newNode){
 
+}
+
+//Function to reverse list
+// O(n) time complexity
+/* Create a 3 pointers that point to next, current and previous position.
+Once current position reaches null we make previous as head node.
+*/
+template<typename T>
+void LinkedList<T>::reverse(){
+    Node<T>* previousNode = nullptr;
+    Node<T>* currentNode = head;
+    Node<T>* nextNode = nullptr;
+    while (currentNode != nullptr){
+        nextNode=currentNode->next;
+        currentNode->next=previousNode;
+        previousNode=currentNode;
+        currentNode=nextNode;
+    }
+    head = previousNode;
 }
