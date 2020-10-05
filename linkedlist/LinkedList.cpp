@@ -106,3 +106,26 @@ void LinkedList<T>::reverse(){
     }
     head = previousNode;
 }
+
+// Using bubble sort temporarily
+template<typename T>
+void LinkedList<T>::sort(){
+    Node<T>* currentNode = head;
+    Node<T>* firstNode = head;
+    Node<T>* secondNode = head->next;
+
+    while (currentNode != nullptr){
+        if (firstNode->value > secondNode->value){
+            Node<T>* temp = firstNode;
+            firstNode->next = secondNode->next;
+            secondNode->next = firstNode;
+            firstNode = secondNode;
+            head = secondNode;
+            secondNode = temp;
+        }
+        firstNode = firstNode->next;
+        secondNode = secondNode->next;
+        currentNode = currentNode->next;
+    } 
+}
+

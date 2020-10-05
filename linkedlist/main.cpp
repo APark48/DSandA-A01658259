@@ -7,11 +7,11 @@ int main(){
     Node<int> n1(3);
     Node<int> n2(5);
     Node<int> n3(1);
-    Node<int> n4(2);
+    Node<int> n4(5);
 
     LinkedList<int> head(&n1); // Setting n1 as head node 
     
-    // Function testing: 
+    /* Function testing: */
     head.push(&n2); // Push test
     head.push(&n3);
     head.prepend(&n4); // Prepend test
@@ -25,8 +25,10 @@ int main(){
     //std::cout << head.isEmpty(); // Double checking if isEmpty() functions correctly
     //std::cout << std::endl;
 
-    head.reverse(); // Reversing list test
-    head.print();
+    // head.reverse(); // Reversing list test
+    head.print(); // Printing reversed list
+
+
 
     return 0;
 }
