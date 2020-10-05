@@ -24,7 +24,7 @@ int main(){
     //head.deleteList(); // Deleting list test
     //std::cout << head.isEmpty(); // Double checking if isEmpty() functions correctly
     //std::cout << std::endl;
-
+    // head.sort();
     // head.reverse(); // Reversing list test
     head.print(); // Printing reversed list
 

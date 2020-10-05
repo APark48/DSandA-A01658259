@@ -64,7 +64,7 @@ int LinkedList<T>::count(T target){
             count++;
         }
         currentNode=currentNode->next;
-    }   
+    }
     return count;
 }
 
@@ -83,10 +83,10 @@ void LinkedList<T>::deleteList(){
 }
 
 // Function to sort list and add new node
-template<typename T>
-void LinkedList<T>::sortedInsert(Node<T>* newNode){
+// template<typename T>
+// void LinkedList<T>::sortedInsert(Node<T>* newNode){
 
-}
+// }
 
 //Function to reverse list
 // O(n) time complexity
@@ -107,25 +107,6 @@ void LinkedList<T>::reverse(){
     head = previousNode;
 }
 
-// Using bubble sort temporarily
-template<typename T>
-void LinkedList<T>::sort(){
-    Node<T>* currentNode = head;
-    Node<T>* firstNode = head;
-    Node<T>* secondNode = head->next;
+void sort(){
 
-    while (currentNode != nullptr){
-        if (firstNode->value > secondNode->value){
-            Node<T>* temp = firstNode;
-            firstNode->next = secondNode->next;
-            secondNode->next = firstNode;
-            firstNode = secondNode;
-            head = secondNode;
-            secondNode = temp;
-        }
-        firstNode = firstNode->next;
-        secondNode = secondNode->next;
-        currentNode = currentNode->next;
-    } 
 }
-

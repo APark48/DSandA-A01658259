@@ -24,9 +24,8 @@ public:
     //Functions
     int count(T target); // Function to count total elements in linked list
     void deleteList(); // Function to eliminate list
-    void sortedInsert(Node<T>* newNode); // Function that once the list has been sorted, insert value in correct sorted order
-    void sort();
+    //void sortedInsert(Node<T>* newNode); // Function that once the list has been sorted, insert value in correct sorted order
     void reverse(); // Function to reverse linked list
-    void removeDuplicates(); // Function to remove duplicates in a list
+    //void removeDuplicates(); // Function to remove duplicates in a list
 };
 
