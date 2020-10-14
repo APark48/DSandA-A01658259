@@ -48,23 +48,35 @@
 #include <iostream>
 #include <vector>
 
-int main(){
-    std::vector<int> v;
-    int size;
-
-    std::cout << "Enter size of list: ";
-    std::cin >> size;
-    
-    while (v.size() != size){
-        int element;
-        std::cout << "Add elements: ";
+void setSize(std::vector<int> elements,int size){
+    int element;
+    while (elements.size()!=size){
+        std::cout << "Enter element to push: ";
         std::cin >> element;
-        v.push_back(element);
+        elements.push_back(element);
     }
+}
 
-    for (auto i:v){
+void print(std::vector<int> elements){
+    for (auto i:elements){
         std::cout << i << " ";
     }
-    
+}
+
+int main(){
+    int size1, size2;
+    std::vector<int> a;
+    std::vector<int> b;
+
+    std::cout << "Enter vector A size: ";
+    std::cin >> size1;
+    setSize(a, size1);
+
+    std::cout << std::endl;
+    std::cout << "Enter vector B size: ";
+    std::cin >> size2;
+    setSize(b, size2);
+
     return 0;
+    
 }
