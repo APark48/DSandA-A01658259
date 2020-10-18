@@ -48,20 +48,9 @@
 #include <iostream>
 #include <vector>
 
-void setSize(std::vector<int> elements,int size){
-    int element;
-    while (elements.size()!=size){
-        std::cout << "Enter element to push: ";
-        std::cin >> element;
-        elements.push_back(element);
-    }
-}
-
-void print(std::vector<int> elements){
-    for (auto i:elements){
-        std::cout << i << " ";
-    }
-}
+void setSize(std::vector<int>&elements, int size);
+void print(std::vector<int>elements);
+void game(std::vector<int>stack, std::vector<int>queue);
 
 int main(){
     int size1, size2;
@@ -71,12 +60,54 @@ int main(){
     std::cout << "Enter vector A size: ";
     std::cin >> size1;
     setSize(a, size1);
+    for (auto i : a){
+        std::cout << i << " ";
+    }
 
     std::cout << std::endl;
     std::cout << "Enter vector B size: ";
     std::cin >> size2;
     setSize(b, size2);
 
+    print(a);
+    std::cout << std::endl;
+    print(b);
+    std::cout << std::endl;
+    game(a,b);
+
     return 0;
     
+}
+
+void setSize(std::vector<int> &elements,int size){
+    int element;
+    while (elements.size()!=size){
+        std::cout << "Enter element to push: ";
+        std::cin >> element;
+        elements.push_back(element);
+    }
+}
+
+void print(std::vector<int> elements){
+    for (int i:elements){
+        std::cout << i << " ";
+    }
+}
+
+void game(std::vector<int> stack, std::vector<int> queue){
+    while (stack.size() != 0 || queue.size() != 0){
+        if (stack.back() > queue.at(0)){
+            std::cout << 2 << " ";
+            queue.erase(queue.begin());
+        }
+        if (stack.back() < queue.at(0)){
+            std::cout << 1 << " ";
+            stack.pop_back();
+        }
+        if (stack.back() == queue.at(0)){
+            std::cout << 0 << " ";
+            queue.erase(queue.begin());
+            stack.pop_back();
+        }
+    }
 }
