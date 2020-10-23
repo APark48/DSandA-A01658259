@@ -45,46 +45,43 @@
 //
 // 	Output list: [2, 2, 0]
 
+// Using vector method:
 #include <iostream>
 #include <vector>
+#include <sstream>
+#include <string>
 
-void setSize(std::vector<int>&elements, int size);
+void pushValues(std::vector<int>&elements);
 void print(std::vector<int>elements);
-void game(std::vector<int>stack, std::vector<int>queue);
+std::vector<int> game(std::vector<int>&stack, std::vector<int>&queue);
 
 int main(){
-    int size1, size2;
     std::vector<int> a;
     std::vector<int> b;
 
-    std::cout << "Enter vector A size: ";
-    std::cin >> size1;
-    setSize(a, size1);
-    for (auto i : a){
-        std::cout << i << " ";
-    }
+    std::cout << "Enter values to push (QUEUE): ";
+    pushValues(a);
 
-    std::cout << std::endl;
-    std::cout << "Enter vector B size: ";
-    std::cin >> size2;
-    setSize(b, size2);
+    std::cout << "Enter values to push (STACK): ";
+    pushValues(b);
 
     print(a);
     std::cout << std::endl;
     print(b);
     std::cout << std::endl;
-    game(a,b);
+    print(game(a,b));
 
     return 0;
     
 }
 
-void setSize(std::vector<int> &elements,int size){
-    int element;
-    while (elements.size()!=size){
-        std::cout << "Enter element to push: ";
-        std::cin >> element;
-        elements.push_back(element);
+void pushValues(std::vector<int>&elements){
+    std::string line;
+    std::getline(std::cin, line);
+    std::stringstream ss(line);
+    int value;
+    while (ss >> value){
+        elements.push_back(value);
     }
 }
 
@@ -94,20 +91,22 @@ void print(std::vector<int> elements){
     }
 }
 
-void game(std::vector<int> stack, std::vector<int> queue){
+std::vector<int> game(std::vector<int>&stack, std::vector<int>&queue){
+    std::vector<int> result;
     while (stack.size() != 0 || queue.size() != 0){
         if (stack.back() > queue.at(0)){
-            std::cout << 2 << " ";
+            result.push_back(2);
             queue.erase(queue.begin());
         }
         if (stack.back() < queue.at(0)){
-            std::cout << 1 << " ";
+            result.push_back(1);
             stack.pop_back();
         }
         if (stack.back() == queue.at(0)){
-            std::cout << 0 << " ";
+            result.push_back(0);
             queue.erase(queue.begin());
             stack.pop_back();
         }
     }
+    return result;
 }
