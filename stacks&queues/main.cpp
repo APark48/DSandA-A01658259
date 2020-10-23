@@ -59,10 +59,9 @@ int main(){
     std::vector<int> a;
     std::vector<int> b;
 
-    std::cout << "Enter values to push (QUEUE): ";
+    std::cout << "ENTER VALUES TO PUSH(QUEUE): ";
     pushValues(a);
-
-    std::cout << "Enter values to push (STACK): ";
+    std::cout << "ENTER VALUES TO PUSH(STACK): ";
     pushValues(b);
 
     print(a);
@@ -72,7 +71,6 @@ int main(){
     print(game(a,b));
 
     return 0;
-    
 }
 
 void pushValues(std::vector<int>&elements){
